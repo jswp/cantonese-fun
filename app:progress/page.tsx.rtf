@@ -1,0 +1,285 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red174\green0\blue75;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c74510\c9412\c36471;\cssrgb\c100000\c100000\c100000;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs26 \cf2 \cb3 \expnd0\expndtw0\kerning0
+import \{ Button \} from "@/components/ui/button"\
+import \{ Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle \} from "@/components/ui/card"\
+import \{ Progress \} from "@/components/ui/progress"\
+import \{ Tabs, TabsContent, TabsList, TabsTrigger \} from "@/components/ui/tabs"\
+import \{ Trophy, Star, Calendar, ArrowUpRight \} from "lucide-react"\
+import Link from "next/link"\
+\
+export default function ProgressPage() \{\
+  return (\
+    <div className="container py-10">\
+      <h1 className="text-3xl font-bold mb-6">My Learning Progress</h1>\
+\
+      <div className="grid gap-6 md:grid-cols-3 mb-8">\
+        <Card>\
+          <CardHeader className="pb-2">\
+            <CardTitle className="text-lg">Daily Streak</CardTitle>\
+            <CardDescription>Keep learning every day!</CardDescription>\
+          </CardHeader>\
+          <CardContent>\
+            <div className="flex items-center justify-between">\
+              <div className="flex items-center gap-2">\
+                <Calendar className="h-5 w-5 text-yellow-500" />\
+                <span className="text-2xl font-bold">7</span>\
+              </div>\
+              <span className="text-sm text-muted-foreground">days</span>\
+            </div>\
+          </CardContent>\
+        </Card>\
+\
+        <Card>\
+          <CardHeader className="pb-2">\
+            <CardTitle className="text-lg">Words Learned</CardTitle>\
+            <CardDescription>Your vocabulary is growing!</CardDescription>\
+          </CardHeader>\
+          <CardContent>\
+            <div className="flex items-center justify-between">\
+              <div className="flex items-center gap-2">\
+                <Star className="h-5 w-5 text-yellow-500" />\
+                <span className="text-2xl font-bold">42</span>\
+              </div>\
+              <span className="text-sm text-muted-foreground">words</span>\
+            </div>\
+          </CardContent>\
+        </Card>\
+\
+        <Card>\
+          <CardHeader className="pb-2">\
+            <CardTitle className="text-lg">Games Completed</CardTitle>\
+            <CardDescription>Learning through play!</CardDescription>\
+          </CardHeader>\
+          <CardContent>\
+            <div className="flex items-center justify-between">\
+              <div className="flex items-center gap-2">\
+                <Trophy className="h-5 w-5 text-yellow-500" />\
+                <span className="text-2xl font-bold">12</span>\
+              </div>\
+              <span className="text-sm text-muted-foreground">games</span>\
+            </div>\
+          </CardContent>\
+        </Card>\
+      </div>\
+\
+      <Tabs defaultValue="vocabulary" className="w-full">\
+        <TabsList className="grid w-full grid-cols-3">\
+          <TabsTrigger value="vocabulary">Vocabulary</TabsTrigger>\
+          <TabsTrigger value="games">Games</TabsTrigger>\
+          <TabsTrigger value="achievements">Achievements</TabsTrigger>\
+        </TabsList>\
+\
+        <TabsContent value="vocabulary" className="mt-6">\
+          <Card>\
+            <CardHeader>\
+              <CardTitle>Vocabulary Progress</CardTitle>\
+              <CardDescription>Track your learning across different categories</CardDescription>\
+            </CardHeader>\
+            <CardContent>\
+              <div className="space-y-4">\
+                <div className="space-y-2">\
+                  <div className="flex items-center justify-between">\
+                    <span>Numbers</span>\
+                    <span className="text-sm text-muted-foreground">8/10</span>\
+                  </div>\
+                  <Progress value=\{80\} className="h-2" />\
+                </div>\
+\
+                <div className="space-y-2">\
+                  <div className="flex items-center justify-between">\
+                    <span>Colors</span>\
+                    <span className="text-sm text-muted-foreground">5/8</span>\
+                  </div>\
+                  <Progress value=\{62.5\} className="h-2" />\
+                </div>\
+\
+                <div className="space-y-2">\
+                  <div className="flex items-center justify-between">\
+                    <span>Greetings</span>\
+                    <span className="text-sm text-muted-foreground">12/15</span>\
+                  </div>\
+                  <Progress value=\{80\} className="h-2" />\
+                </div>\
+\
+                <div className="space-y-2">\
+                  <div className="flex items-center justify-between">\
+                    <span>Family</span>\
+                    <span className="text-sm text-muted-foreground">10/12</span>\
+                  </div>\
+                  <Progress value=\{83.3\} className="h-2" />\
+                </div>\
+\
+                <div className="space-y-2">\
+                  <div className="flex items-center justify-between">\
+                    <span>Food</span>\
+                    <span className="text-sm text-muted-foreground">7/20</span>\
+                  </div>\
+                  <Progress value=\{35\} className="h-2" />\
+                </div>\
+              </div>\
+            </CardContent>\
+            <CardFooter>\
+              <Link href="/learn" className="w-full">\
+                <Button variant="outline" className="w-full">\
+                  Continue Learning\
+                </Button>\
+              </Link>\
+            </CardFooter>\
+          </Card>\
+        </TabsContent>\
+\
+        <TabsContent value="games" className="mt-6">\
+          <Card>\
+            <CardHeader>\
+              <CardTitle>Games Progress</CardTitle>\
+              <CardDescription>Your performance in learning games</CardDescription>\
+            </CardHeader>\
+            <CardContent>\
+              <div className="space-y-6">\
+                <div className="flex items-center justify-between">\
+                  <div className="flex items-center gap-3">\
+                    <div className="bg-yellow-100 p-2 rounded-full">\
+                      <Trophy className="h-5 w-5 text-yellow-500" />\
+                    </div>\
+                    <div>\
+                      <div className="font-medium">Memory Match</div>\
+                      <div className="text-sm text-muted-foreground">Best score: 12 moves</div>\
+                    </div>\
+                  </div>\
+                  <Link href="/games/memory">\
+                    <Button variant="ghost" size="icon">\
+                      <ArrowUpRight className="h-4 w-4" />\
+                    </Button>\
+                  </Link>\
+                </div>\
+\
+                <div className="flex items-center justify-between">\
+                  <div className="flex items-center gap-3">\
+                    <div className="bg-green-100 p-2 rounded-full">\
+                      <Trophy className="h-5 w-5 text-green-500" />\
+                    </div>\
+                    <div>\
+                      <div className="font-medium">Word Scramble</div>\
+                      <div className="text-sm text-muted-foreground">Completed 5 puzzles</div>\
+                    </div>\
+                  </div>\
+                  <Link href="/games/scramble">\
+                    <Button variant="ghost" size="icon">\
+                      <ArrowUpRight className="h-4 w-4" />\
+                    </Button>\
+                  </Link>\
+                </div>\
+\
+                <div className="flex items-center justify-between">\
+                  <div className="flex items-center gap-3">\
+                    <div className="bg-blue-100 p-2 rounded-full">\
+                      <Trophy className="h-5 w-5 text-blue-500" />\
+                    </div>\
+                    <div>\
+                      <div className="font-medium">Sound Quiz</div>\
+                      <div className="text-sm text-muted-foreground">Accuracy: 85%</div>\
+                    </div>\
+                  </div>\
+                  <Link href="/games/sound-quiz">\
+                    <Button variant="ghost" size="icon">\
+                      <ArrowUpRight className="h-4 w-4" />\
+                    </Button>\
+                  </Link>\
+                </div>\
+\
+                <div className="flex items-center justify-between">\
+                  <div className="flex items-center gap-3">\
+                    <div className="bg-purple-100 p-2 rounded-full">\
+                      <Trophy className="h-5 w-5 text-purple-500" />\
+                    </div>\
+                    <div>\
+                      <div className="font-medium">Picture Match</div>\
+                      <div className="text-sm text-muted-foreground">Completed 3 rounds</div>\
+                    </div>\
+                  </div>\
+                  <Link href="/games/picture-match">\
+                    <Button variant="ghost" size="icon">\
+                      <ArrowUpRight className="h-4 w-4" />\
+                    </Button>\
+                  </Link>\
+                </div>\
+              </div>\
+            </CardContent>\
+            <CardFooter>\
+              <Link href="/games" className="w-full">\
+                <Button variant="outline" className="w-full">\
+                  Play More Games\
+                </Button>\
+              </Link>\
+            </CardFooter>\
+          </Card>\
+        </TabsContent>\
+\
+        <TabsContent value="achievements" className="mt-6">\
+          <Card>\
+            <CardHeader>\
+              <CardTitle>Achievements</CardTitle>\
+              <CardDescription>Milestones in your learning journey</CardDescription>\
+            </CardHeader>\
+            <CardContent>\
+              <div className="grid gap-4 md:grid-cols-2">\
+                <div className="border rounded-lg p-4 flex items-center gap-4 bg-gradient-to-r from-yellow-50 to-yellow-100">\
+                  <div className="bg-yellow-200 p-3 rounded-full">\
+                    <Star className="h-6 w-6 text-yellow-600" />\
+                  </div>\
+                  <div>\
+                    <div className="font-medium">First Steps</div>\
+                    <div className="text-sm text-muted-foreground">Learned 10 Cantonese words</div>\
+                  </div>\
+                </div>\
+\
+                <div className="border rounded-lg p-4 flex items-center gap-4 bg-gradient-to-r from-green-50 to-green-100">\
+                  <div className="bg-green-200 p-3 rounded-full">\
+                    <Star className="h-6 w-6 text-green-600" />\
+                  </div>\
+                  <div>\
+                    <div className="font-medium">Conversation Starter</div>\
+                    <div className="text-sm text-muted-foreground">Learned all basic greetings</div>\
+                  </div>\
+                </div>\
+\
+                <div className="border rounded-lg p-4 flex items-center gap-4 bg-gradient-to-r from-blue-50 to-blue-100">\
+                  <div className="bg-blue-200 p-3 rounded-full">\
+                    <Star className="h-6 w-6 text-blue-600" />\
+                  </div>\
+                  <div>\
+                    <div className="font-medium">Game Master</div>\
+                    <div className="text-sm text-muted-foreground">Completed 5 different games</div>\
+                  </div>\
+                </div>\
+\
+                <div className="border rounded-lg p-4 flex items-center gap-4 bg-gradient-to-r from-purple-50 to-purple-100">\
+                  <div className="bg-purple-200 p-3 rounded-full">\
+                    <Star className="h-6 w-6 text-purple-600" />\
+                  </div>\
+                  <div>\
+                    <div className="font-medium">Family Circle</div>\
+                    <div className="text-sm text-muted-foreground">Learned all family member terms</div>\
+                  </div>\
+                </div>\
+              </div>\
+            </CardContent>\
+            <CardFooter>\
+              <Button variant="outline" className="w-full">\
+                View All Achievements\
+              </Button>\
+            </CardFooter>\
+          </Card>\
+        </TabsContent>\
+      </Tabs>\
+    </div>\
+  )\
+\}\
+}

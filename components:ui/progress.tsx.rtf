@@ -1,0 +1,33 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 "use client"\
+\
+import * as React from "react"\
+import * as ProgressPrimitive from "@radix-ui/react-progress"\
+\
+import \{ cn \} from "@/lib/utils"\
+\
+const Progress = React.forwardRef<\
+  React.ElementRef<typeof ProgressPrimitive.Root>,\
+  React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Root>\
+>((\{ className, value, ...props \}, ref) => (\
+  <ProgressPrimitive.Root\
+    ref=\{ref\}\
+    className=\{cn("relative h-4 w-full overflow-hidden rounded-full bg-secondary", className)\}\
+    \{...props\}\
+  >\
+    <ProgressPrimitive.Indicator\
+      className="h-full w-full flex-1 bg-primary transition-all"\
+      style=\{\{ transform: `translateX(-$\{100 - (value || 0)\}%)` \}\}\
+    />\
+  </ProgressPrimitive.Root>\
+))\
+Progress.displayName = ProgressPrimitive.Root.displayName\
+\
+export \{ Progress \}\
+}

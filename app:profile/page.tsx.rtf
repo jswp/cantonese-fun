@@ -1,0 +1,180 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 import \{ Button \} from "@/components/ui/button"\
+import \{ Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle \} from "@/components/ui/card"\
+import \{ Input \} from "@/components/ui/input"\
+import \{ Label \} from "@/components/ui/label"\
+import \{ Tabs, TabsContent, TabsList, TabsTrigger \} from "@/components/ui/tabs"\
+import \{ Switch \} from "@/components/ui/switch"\
+import \{ ArrowLeft \} from "lucide-react"\
+import Link from "next/link"\
+\
+export default function ProfilePage() \{\
+  return (\
+    <div className="container py-10">\
+      <div className="flex items-center mb-6">\
+        <Link href="/">\
+          <Button variant="ghost" size="icon" className="mr-2">\
+            <ArrowLeft className="h-5 w-5" />\
+          </Button>\
+        </Link>\
+        <h1 className="text-3xl font-bold">My Profile</h1>\
+      </div>\
+\
+      <div className="grid gap-6 md:grid-cols-3">\
+        <div className="md:col-span-1">\
+          <Card>\
+            <CardHeader>\
+              <div className="flex justify-center">\
+                <div className="w-24 h-24 rounded-full bg-yellow-100 flex items-center justify-center text-4xl">\uc0\u55357 \u56423 </div>\
+              </div>\
+              <CardTitle className="text-center mt-2">Lily Wong</CardTitle>\
+              <CardDescription className="text-center">Learning since April 2025</CardDescription>\
+            </CardHeader>\
+            <CardContent>\
+              <div className="space-y-4">\
+                <div className="flex justify-between items-center">\
+                  <span>Level</span>\
+                  <span className="font-bold">Beginner</span>\
+                </div>\
+                <div className="flex justify-between items-center">\
+                  <span>Words Learned</span>\
+                  <span className="font-bold">42</span>\
+                </div>\
+                <div className="flex justify-between items-center">\
+                  <span>Daily Streak</span>\
+                  <span className="font-bold">7 days</span>\
+                </div>\
+              </div>\
+            </CardContent>\
+            <CardFooter>\
+              <Button variant="outline" className="w-full">\
+                Edit Avatar\
+              </Button>\
+            </CardFooter>\
+          </Card>\
+        </div>\
+\
+        <div className="md:col-span-2">\
+          <Tabs defaultValue="settings" className="w-full">\
+            <TabsList className="grid w-full grid-cols-2">\
+              <TabsTrigger value="settings">Settings</TabsTrigger>\
+              <TabsTrigger value="learning">Learning Preferences</TabsTrigger>\
+            </TabsList>\
+\
+            <TabsContent value="settings" className="mt-6">\
+              <Card>\
+                <CardHeader>\
+                  <CardTitle>Account Settings</CardTitle>\
+                  <CardDescription>Manage your account preferences</CardDescription>\
+                </CardHeader>\
+                <CardContent className="space-y-4">\
+                  <div className="space-y-2">\
+                    <Label htmlFor="name">Display Name</Label>\
+                    <Input id="name" defaultValue="Lily Wong" />\
+                  </div>\
+                  <div className="space-y-2">\
+                    <Label htmlFor="email">Email</Label>\
+                    <Input id="email" type="email" defaultValue="lily@example.com" />\
+                  </div>\
+                  <div className="space-y-2">\
+                    <Label htmlFor="password">Password</Label>\
+                    <Input id="password" type="password" defaultValue="********" />\
+                  </div>\
+\
+                  <div className="flex items-center justify-between">\
+                    <div className="space-y-0.5">\
+                      <Label htmlFor="notifications">Email Notifications</Label>\
+                      <div className="text-sm text-muted-foreground">Receive learning reminders and updates</div>\
+                    </div>\
+                    <Switch id="notifications" defaultChecked />\
+                  </div>\
+                </CardContent>\
+                <CardFooter>\
+                  <Button className="w-full">Save Changes</Button>\
+                </CardFooter>\
+              </Card>\
+            </TabsContent>\
+\
+            <TabsContent value="learning" className="mt-6">\
+              <Card>\
+                <CardHeader>\
+                  <CardTitle>Learning Preferences</CardTitle>\
+                  <CardDescription>Customize your learning experience</CardDescription>\
+                </CardHeader>\
+                <CardContent className="space-y-4">\
+                  <div className="flex items-center justify-between">\
+                    <div className="space-y-0.5">\
+                      <Label htmlFor="show-jyutping">Show Jyutping</Label>\
+                      <div className="text-sm text-muted-foreground">Display pronunciation guide</div>\
+                    </div>\
+                    <Switch id="show-jyutping" defaultChecked />\
+                  </div>\
+\
+                  <div className="flex items-center justify-between">\
+                    <div className="space-y-0.5">\
+                      <Label htmlFor="show-english">Show English Translation</Label>\
+                      <div className="text-sm text-muted-foreground">Display English alongside Cantonese</div>\
+                    </div>\
+                    <Switch id="show-english" defaultChecked />\
+                  </div>\
+\
+                  <div className="flex items-center justify-between">\
+                    <div className="space-y-0.5">\
+                      <Label htmlFor="auto-audio">Auto-play Audio</Label>\
+                      <div className="text-sm text-muted-foreground">Automatically play pronunciation</div>\
+                    </div>\
+                    <Switch id="auto-audio" />\
+                  </div>\
+\
+                  <div className="flex items-center justify-between">\
+                    <div className="space-y-0.5">\
+                      <Label htmlFor="difficulty">Difficulty Level</Label>\
+                      <div className="text-sm text-muted-foreground">Adjust content difficulty</div>\
+                    </div>\
+                    <select\
+                      id="difficulty"\
+                      className="rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm"\
+                      defaultValue="beginner"\
+                    >\
+                      <option value="beginner">Beginner</option>\
+                      <option value="intermediate">Intermediate</option>\
+                      <option value="advanced">Advanced</option>\
+                    </select>\
+                  </div>\
+\
+                  <div className="flex items-center justify-between">\
+                    <div className="space-y-0.5">\
+                      <Label htmlFor="daily-goal">Daily Learning Goal</Label>\
+                      <div className="text-sm text-muted-foreground">Minutes per day</div>\
+                    </div>\
+                    <select\
+                      id="daily-goal"\
+                      className="rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm"\
+                      defaultValue="15"\
+                    >\
+                      <option value="5">5 minutes</option>\
+                      <option value="10">10 minutes</option>\
+                      <option value="15">15 minutes</option>\
+                      <option value="30">30 minutes</option>\
+                      <option value="60">60 minutes</option>\
+                    </select>\
+                  </div>\
+                </CardContent>\
+                <CardFooter>\
+                  <Button className="w-full">Save Preferences</Button>\
+                </CardFooter>\
+              </Card>\
+            </TabsContent>\
+          </Tabs>\
+        </div>\
+      </div>\
+    </div>\
+  )\
+\}\
+}

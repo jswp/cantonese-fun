@@ -1,0 +1,201 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 import \{ Button \} from "@/components/ui/button"\
+import \{ Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle \} from "@/components/ui/card"\
+import \{ Tabs, TabsContent, TabsList, TabsTrigger \} from "@/components/ui/tabs"\
+import \{ VolumeIcon \} from "lucide-react"\
+\
+export default function LearnPage() \{\
+  return (\
+    <div className="container py-10">\
+      <h1 className="text-3xl font-bold mb-6">Learn Cantonese</h1>\
+\
+      <Tabs defaultValue="basics" className="w-full">\
+        <TabsList className="grid w-full grid-cols-3">\
+          <TabsTrigger value="basics">Basics</TabsTrigger>\
+          <TabsTrigger value="greetings">Greetings</TabsTrigger>\
+          <TabsTrigger value="family">Family</TabsTrigger>\
+        </TabsList>\
+\
+        <TabsContent value="basics" className="mt-6">\
+          <div className="grid gap-6 md:grid-cols-2">\
+            <Card>\
+              <CardHeader>\
+                <CardTitle>Numbers</CardTitle>\
+                <CardDescription>Learn to count in Cantonese</CardDescription>\
+              </CardHeader>\
+              <CardContent>\
+                <ul className="space-y-4">\
+                  \{[\
+                    \{ english: "One", cantonese: "Yat", jyutping: "jat1", audio: "#" \},\
+                    \{ english: "Two", cantonese: "Yi", jyutping: "ji6", audio: "#" \},\
+                    \{ english: "Three", cantonese: "Saam", jyutping: "saam1", audio: "#" \},\
+                    \{ english: "Four", cantonese: "Sei", jyutping: "sei3", audio: "#" \},\
+                    \{ english: "Five", cantonese: "Ng", jyutping: "ng5", audio: "#" \},\
+                  ].map((item, index) => (\
+                    <li\
+                      key=\{index\}\
+                      className="flex items-center justify-between p-3 rounded-lg bg-yellow-50 hover:bg-yellow-100 transition-colors"\
+                    >\
+                      <div>\
+                        <span className="font-bold">\{item.english\}: </span>\
+                        <span className="text-lg">\{item.cantonese\}</span>\
+                        <span className="text-sm text-muted-foreground ml-2">(\{item.jyutping\})</span>\
+                      </div>\
+                      <Button variant="ghost" size="icon" className="h-8 w-8">\
+                        <VolumeIcon className="h-4 w-4" />\
+                        <span className="sr-only">Play pronunciation</span>\
+                      </Button>\
+                    </li>\
+                  ))\}\
+                </ul>\
+              </CardContent>\
+              <CardFooter>\
+                <Button variant="outline" className="w-full">\
+                  See All Numbers\
+                </Button>\
+              </CardFooter>\
+            </Card>\
+\
+            <Card>\
+              <CardHeader>\
+                <CardTitle>Colors</CardTitle>\
+                <CardDescription>Basic colors in Cantonese</CardDescription>\
+              </CardHeader>\
+              <CardContent>\
+                <ul className="space-y-4">\
+                  \{[\
+                    \{ english: "Red", cantonese: "Hung", jyutping: "hung4", audio: "#", color: "bg-red-500" \},\
+                    \{ english: "Blue", cantonese: "Laam", jyutping: "laam4", audio: "#", color: "bg-blue-500" \},\
+                    \{ english: "Yellow", cantonese: "Wong", jyutping: "wong4", audio: "#", color: "bg-yellow-500" \},\
+                    \{ english: "Green", cantonese: "Luk", jyutping: "luk6", audio: "#", color: "bg-green-500" \},\
+                    \{ english: "Black", cantonese: "Hak", jyutping: "hak1", audio: "#", color: "bg-black" \},\
+                  ].map((item, index) => (\
+                    <li\
+                      key=\{index\}\
+                      className="flex items-center justify-between p-3 rounded-lg bg-yellow-50 hover:bg-yellow-100 transition-colors"\
+                    >\
+                      <div className="flex items-center gap-3">\
+                        <div className=\{`w-6 h-6 rounded-full $\{item.color\}`\}></div>\
+                        <div>\
+                          <span className="font-bold">\{item.english\}: </span>\
+                          <span className="text-lg">\{item.cantonese\}</span>\
+                          <span className="text-sm text-muted-foreground ml-2">(\{item.jyutping\})</span>\
+                        </div>\
+                      </div>\
+                      <Button variant="ghost" size="icon" className="h-8 w-8">\
+                        <VolumeIcon className="h-4 w-4" />\
+                        <span className="sr-only">Play pronunciation</span>\
+                      </Button>\
+                    </li>\
+                  ))\}\
+                </ul>\
+              </CardContent>\
+              <CardFooter>\
+                <Button variant="outline" className="w-full">\
+                  See All Colors\
+                </Button>\
+              </CardFooter>\
+            </Card>\
+          </div>\
+        </TabsContent>\
+\
+        <TabsContent value="greetings" className="mt-6">\
+          <Card>\
+            <CardHeader>\
+              <CardTitle>Common Greetings</CardTitle>\
+              <CardDescription>Everyday phrases to greet people</CardDescription>\
+            </CardHeader>\
+            <CardContent>\
+              <ul className="space-y-4">\
+                \{[\
+                  \{ english: "Hello", cantonese: "Nei hou", jyutping: "nei5 hou2", audio: "#" \},\
+                  \{ english: "Good morning", cantonese: "Jou san", jyutping: "zou2 san4", audio: "#" \},\
+                  \{ english: "Good afternoon", cantonese: "Ng on", jyutping: "ng5 on1", audio: "#" \},\
+                  \{ english: "Goodbye", cantonese: "Joi gin", jyutping: "zoi3 gin3", audio: "#" \},\
+                  \{ english: "Thank you", cantonese: "M goi", jyutping: "m4 goi1", audio: "#" \},\
+                  \{\
+                    english: "You're welcome",\
+                    cantonese: "M sai haak hei",\
+                    jyutping: "m4 sai2 haak3 hei1",\
+                    audio: "#",\
+                  \},\
+                ].map((item, index) => (\
+                  <li\
+                    key=\{index\}\
+                    className="flex items-center justify-between p-3 rounded-lg bg-yellow-50 hover:bg-yellow-100 transition-colors"\
+                  >\
+                    <div>\
+                      <span className="font-bold">\{item.english\}: </span>\
+                      <span className="text-lg">\{item.cantonese\}</span>\
+                      <span className="text-sm text-muted-foreground ml-2">(\{item.jyutping\})</span>\
+                    </div>\
+                    <Button variant="ghost" size="icon" className="h-8 w-8">\
+                      <VolumeIcon className="h-4 w-4" />\
+                      <span className="sr-only">Play pronunciation</span>\
+                    </Button>\
+                  </li>\
+                ))\}\
+              </ul>\
+            </CardContent>\
+            <CardFooter>\
+              <div className="flex justify-between w-full">\
+                <Button variant="outline">Practice Dialogue</Button>\
+                <Button variant="outline">See More Phrases</Button>\
+              </div>\
+            </CardFooter>\
+          </Card>\
+        </TabsContent>\
+\
+        <TabsContent value="family" className="mt-6">\
+          <Card>\
+            <CardHeader>\
+              <CardTitle>Family Members</CardTitle>\
+              <CardDescription>Learn how to refer to family members in Cantonese</CardDescription>\
+            </CardHeader>\
+            <CardContent>\
+              <ul className="space-y-4">\
+                \{[\
+                  \{ english: "Mother", cantonese: "Maa maa", jyutping: "maa1 maa1", audio: "#" \},\
+                  \{ english: "Father", cantonese: "Baa baa", jyutping: "baa1 baa1", audio: "#" \},\
+                  \{ english: "Older Brother", cantonese: "Go go", jyutping: "go1 go1", audio: "#" \},\
+                  \{ english: "Older Sister", cantonese: "Je je", jyutping: "ze1 ze1", audio: "#" \},\
+                  \{ english: "Younger Brother", cantonese: "Dai dai", jyutping: "dai6 dai2", audio: "#" \},\
+                  \{ english: "Younger Sister", cantonese: "Mui mui", jyutping: "mui6 mui2", audio: "#" \},\
+                  \{ english: "Grandmother", cantonese: "Maa maa", jyutping: "maa4 maa2", audio: "#" \},\
+                  \{ english: "Grandfather", cantonese: "Ye ye", jyutping: "je4 je5", audio: "#" \},\
+                ].map((item, index) => (\
+                  <li\
+                    key=\{index\}\
+                    className="flex items-center justify-between p-3 rounded-lg bg-yellow-50 hover:bg-yellow-100 transition-colors"\
+                  >\
+                    <div>\
+                      <span className="font-bold">\{item.english\}: </span>\
+                      <span className="text-lg">\{item.cantonese\}</span>\
+                      <span className="text-sm text-muted-foreground ml-2">(\{item.jyutping\})</span>\
+                    </div>\
+                    <Button variant="ghost" size="icon" className="h-8 w-8">\
+                      <VolumeIcon className="h-4 w-4" />\
+                      <span className="sr-only">Play pronunciation</span>\
+                    </Button>\
+                  </li>\
+                ))\}\
+              </ul>\
+            </CardContent>\
+            <CardFooter>\
+              <Button variant="outline" className="w-full">\
+                Family Tree Activity\
+              </Button>\
+            </CardFooter>\
+          </Card>\
+        </TabsContent>\
+      </Tabs>\
+    </div>\
+  )\
+\}\
+}

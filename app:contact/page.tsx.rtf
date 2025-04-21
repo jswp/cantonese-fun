@@ -1,0 +1,168 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 "use client"\
+\
+import type React from "react"\
+\
+import \{ useState \} from "react"\
+import \{ Button \} from "@/components/ui/button"\
+import \{ Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle \} from "@/components/ui/card"\
+import \{ Input \} from "@/components/ui/input"\
+import \{ Label \} from "@/components/ui/label"\
+import \{ Textarea \} from "@/components/ui/textarea"\
+import \{ Mail, Phone, MapPin, Send, Check \} from "lucide-react"\
+\
+export default function ContactPage() \{\
+  const [submitted, setSubmitted] = useState(false)\
+\
+  const handleSubmit = (e: React.FormEvent) => \{\
+    e.preventDefault()\
+    // In a real app, you would send the form data to your server\
+    setSubmitted(true)\
+    setTimeout(() => \{\
+      setSubmitted(false)\
+    \}, 3000)\
+  \}\
+\
+  return (\
+    <div className="container py-10">\
+      <h1 className="text-3xl font-bold mb-6">Contact Us</h1>\
+\
+      <div className="grid gap-8 md:grid-cols-2">\
+        <div>\
+          <Card>\
+            <CardHeader>\
+              <CardTitle>Get in Touch</CardTitle>\
+              <CardDescription>\
+                We'd love to hear from you! Send us a message and we'll respond as soon as possible.\
+              </CardDescription>\
+            </CardHeader>\
+            <CardContent>\
+              <form onSubmit=\{handleSubmit\} className="space-y-4">\
+                <div className="grid gap-4">\
+                  <div className="space-y-2">\
+                    <Label htmlFor="name">Name</Label>\
+                    <Input id="name" placeholder="Your name" required />\
+                  </div>\
+                  <div className="space-y-2">\
+                    <Label htmlFor="email">Email</Label>\
+                    <Input id="email" type="email" placeholder="Your email address" required />\
+                  </div>\
+                </div>\
+                <div className="space-y-2">\
+                  <Label htmlFor="subject">Subject</Label>\
+                  <Input id="subject" placeholder="What is this regarding?" required />\
+                </div>\
+                <div className="space-y-2">\
+                  <Label htmlFor="message">Message</Label>\
+                  <Textarea id="message" placeholder="Tell us how we can help..." className="min-h-[120px]" required />\
+                </div>\
+              </form>\
+            </CardContent>\
+            <CardFooter>\
+              <Button className="w-full" onClick=\{handleSubmit\} disabled=\{submitted\}>\
+                \{submitted ? (\
+                  <>\
+                    <Check className="mr-2 h-4 w-4" /> Message Sent\
+                  </>\
+                ) : (\
+                  <>\
+                    <Send className="mr-2 h-4 w-4" /> Send Message\
+                  </>\
+                )\}\
+              </Button>\
+            </CardFooter>\
+          </Card>\
+        </div>\
+\
+        <div className="space-y-6">\
+          <div>\
+            <h2 className="text-xl font-semibold mb-4">Contact Information</h2>\
+            <div className="space-y-4">\
+              <div className="flex items-start gap-3">\
+                <div className="bg-yellow-100 p-2 rounded-full">\
+                  <Mail className="h-5 w-5 text-yellow-600" />\
+                </div>\
+                <div>\
+                  <div className="font-medium">Email</div>\
+                  <div className="text-sm text-muted-foreground">hello@cantonesefun.com</div>\
+                </div>\
+              </div>\
+\
+              <div className="flex items-start gap-3">\
+                <div className="bg-green-100 p-2 rounded-full">\
+                  <Phone className="h-5 w-5 text-green-600" />\
+                </div>\
+                <div>\
+                  <div className="font-medium">Phone</div>\
+                  <div className="text-sm text-muted-foreground">+1 (555) 123-4567</div>\
+                </div>\
+              </div>\
+\
+              <div className="flex items-start gap-3">\
+                <div className="bg-blue-100 p-2 rounded-full">\
+                  <MapPin className="h-5 w-5 text-blue-600" />\
+                </div>\
+                <div>\
+                  <div className="font-medium">Address</div>\
+                  <div className="text-sm text-muted-foreground">\
+                    123 Language Lane\
+                    <br />\
+                    San Francisco, CA 94103\
+                    <br />\
+                    United States\
+                  </div>\
+                </div>\
+              </div>\
+            </div>\
+          </div>\
+\
+          <div>\
+            <h2 className="text-xl font-semibold mb-4">Frequently Asked Questions</h2>\
+            <div className="space-y-4">\
+              <div>\
+                <h3 className="font-medium">Is Cantonese Fun suitable for complete beginners?</h3>\
+                <p className="text-sm text-muted-foreground">\
+                  Yes! Our platform is designed for learners of all levels, including complete beginners. We start with\
+                  basic concepts and gradually build up your skills.\
+                </p>\
+              </div>\
+\
+              <div>\
+                <h3 className="font-medium">How much time should we spend learning each day?</h3>\
+                <p className="text-sm text-muted-foreground">\
+                  We recommend 10-15 minutes daily for consistent progress. Short, regular practice sessions are more\
+                  effective than occasional long sessions.\
+                </p>\
+              </div>\
+\
+              <div>\
+                <h3 className="font-medium">Can multiple family members use one account?</h3>\
+                <p className="text-sm text-muted-foreground">\
+                  Yes, our family accounts allow up to 5 profiles so each family member can track their own progress.\
+                </p>\
+              </div>\
+            </div>\
+          </div>\
+\
+          <div className="p-6 bg-yellow-50 rounded-lg">\
+            <h3 className="font-semibold mb-2">Join Our Newsletter</h3>\
+            <p className="text-sm text-muted-foreground mb-4">\
+              Subscribe to receive learning tips, cultural insights, and updates about new features.\
+            </p>\
+            <div className="flex gap-2">\
+              <Input placeholder="Your email address" />\
+              <Button className="bg-yellow-500 hover:bg-yellow-600">Subscribe</Button>\
+            </div>\
+          </div>\
+        </div>\
+      </div>\
+    </div>\
+  )\
+\}\
+}
